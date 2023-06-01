@@ -808,6 +808,7 @@ padding: 1rem;
    padding: 1rem;
    border-radius: 1rem;
    position: absolute;
+   right:0;
    border-top-left-radius: 0;
    border-bottom-left-radius: 0;
  }
