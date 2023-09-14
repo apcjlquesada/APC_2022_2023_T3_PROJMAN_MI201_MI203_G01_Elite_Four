@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2023 at 03:20 PM
+-- Generation Time: Mar 12, 2023 at 11:00 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -35,7 +35,7 @@ CREATE TABLE `admins` (
   `password` varchar(100) NOT NULL,
   `phone_number` varchar(11) NOT NULL,
   `verification` varchar(255) NOT NULL,
-  `account_created` date NOT NULL DEFAULT current_timestamp()
+  `account_created` date NOT NULL DEFAULT CURDATE() 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -43,8 +43,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`admin_id`, `profile_picture`, `complete_name`, `email_address`, `password`, `phone_number`, `verification`, `account_created`) VALUES
-(18, '254351157_589300142288374_2888679371265441279_n.jpg', 'Dan Michael Alfaras', 'alfaras.dmc78@gmail.com', '4c8c72011b93d4ff7fbd9dcdd5ae010c7529d632', '09154601667', '', '2023-02-17'),
-(22, 'FrZy68LWwAIV1AI.jpg', 'John Zenon', 'johnzenon27@gmail.com', 'e118f68ac93d7dd0b93269e5aff99f5ca66d9b63', '09661433957', '', '2023-06-02');
+(18, '254351157_589300142288374_2888679371265441279_n.jpg', 'Dan Michael Alfaras', 'alfaras.dmc78@gmail.com', '4c8c72011b93d4ff7fbd9dcdd5ae010c7529d632', '09154601667', '', '2023-02-17');
 
 -- --------------------------------------------------------
 
@@ -56,7 +55,7 @@ CREATE TABLE `car_models` (
   `car_model_id` int(11) NOT NULL,
   `car_model` varchar(100) NOT NULL,
   `status` varchar(32) NOT NULL DEFAULT 'AVAILABLE',
-  `date_uploaded` date NOT NULL DEFAULT current_timestamp()
+  `date_uploaded` date NOT NULL DEFAULT CURDATE() 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -90,7 +89,7 @@ CREATE TABLE `customers` (
   `password` varchar(100) NOT NULL,
   `phone_number` varchar(11) NOT NULL,
   `verification` varchar(255) NOT NULL,
-  `account_created` date NOT NULL DEFAULT current_timestamp()
+  `account_created` date NOT NULL DEFAULT CURDATE() 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -114,7 +113,7 @@ CREATE TABLE `faqs` (
   `faq_title` varchar(100) NOT NULL,
   `faq_description` text NOT NULL,
   `status` varchar(32) NOT NULL DEFAULT 'SHOW',
-  `date_uploaded` date NOT NULL DEFAULT current_timestamp()
+  `date_uploaded` date NOT NULL DEFAULT CURDATE() 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -144,7 +143,7 @@ CREATE TABLE `gallery` (
   `gallery_picture` varchar(100) NOT NULL,
   `gallery_picture_name` varchar(100) NOT NULL,
   `status` varchar(32) NOT NULL DEFAULT 'SHOW',
-  `date_uploaded` date NOT NULL DEFAULT current_timestamp()
+  `date_uploaded` date NOT NULL DEFAULT CURDATE() 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -170,7 +169,7 @@ CREATE TABLE `promos` (
   `promo_poster` varchar(100) NOT NULL,
   `promo_name` varchar(100) NOT NULL,
   `status` varchar(32) NOT NULL DEFAULT 'SHOW',
-  `date_uploaded` date NOT NULL DEFAULT current_timestamp()
+  `date_uploaded` date NOT NULL DEFAULT CURDATE() 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -199,7 +198,7 @@ CREATE TABLE `reservations` (
   `schedule` datetime NOT NULL,
   `customer_number` varchar(11) NOT NULL,
   `status` varchar(32) NOT NULL DEFAULT 'PENDING',
-  `date_placed` date NOT NULL DEFAULT current_timestamp(),
+  `date_placed` date NOT NULL DEFAULT CURDATE() ,
   `date_updated` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -270,7 +269,7 @@ CREATE TABLE `reviews` (
   `customer_name` varchar(100) NOT NULL,
   `rating` varchar(1) NOT NULL,
   `description` text NOT NULL,
-  `date_posted` datetime NOT NULL DEFAULT current_timestamp()
+  `date_posted` datetime NOT NULL DEFAULT CURDATE() 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -300,7 +299,7 @@ CREATE TABLE `services` (
   `service_name` varchar(100) NOT NULL,
   `service_description` text NOT NULL,
   `status` varchar(32) DEFAULT 'AVAILABLE',
-  `date_uploaded` date NOT NULL DEFAULT current_timestamp()
+  `date_uploaded` date NOT NULL DEFAULT CURDATE() 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -332,7 +331,7 @@ CREATE TABLE `support_reply` (
   `complete_name` varchar(100) NOT NULL,
   `profile_picture` varchar(100) NOT NULL,
   `thread_response` text NOT NULL,
-  `date_posted` datetime NOT NULL DEFAULT current_timestamp()
+  `date_posted` datetime NOT NULL DEFAULT CURDATE() 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -369,7 +368,7 @@ CREATE TABLE `support_tab` (
   `complete_name` varchar(100) NOT NULL,
   `thread_title` varchar(100) NOT NULL,
   `thread_description` text NOT NULL,
-  `date_posted` datetime NOT NULL DEFAULT current_timestamp()
+  `date_posted` datetime NOT NULL DEFAULT CURDATE() 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -393,7 +392,7 @@ INSERT INTO `support_tab` (`support_id`, `customer_id`, `profile_picture`, `comp
 
 CREATE TABLE `website_visits` (
   `cookie_id` bigint(11) NOT NULL,
-  `visit_time` date NOT NULL DEFAULT current_timestamp()
+  `visit_time` date NOT NULL DEFAULT CURDATE() 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -522,35 +521,7 @@ INSERT INTO `website_visits` (`cookie_id`, `visit_time`) VALUES
 (2147483872, '2023-03-12'),
 (2147483873, '2023-03-12'),
 (2147483874, '2023-03-12'),
-(2147483875, '2023-03-12'),
-(2147483876, '2023-05-22'),
-(2147483877, '2023-05-22'),
-(2147483878, '2023-05-22'),
-(2147483879, '2023-05-23'),
-(2147483880, '2023-05-23'),
-(2147483881, '2023-05-25'),
-(2147483882, '2023-05-27'),
-(2147483883, '2023-05-30'),
-(2147483884, '2023-05-30'),
-(2147483885, '2023-05-30'),
-(2147483886, '2023-05-30'),
-(2147483887, '2023-06-01'),
-(2147483888, '2023-06-01'),
-(2147483889, '2023-06-01'),
-(2147483890, '2023-06-01'),
-(2147483891, '2023-06-01'),
-(2147483892, '2023-06-01'),
-(2147483893, '2023-06-01'),
-(2147483894, '2023-06-01'),
-(2147483895, '2023-06-01'),
-(2147483896, '2023-06-01'),
-(2147483897, '2023-06-01'),
-(2147483898, '2023-06-01'),
-(2147483899, '2023-06-01'),
-(2147483900, '2023-06-01'),
-(2147483901, '2023-06-01'),
-(2147483902, '2023-06-01'),
-(2147483903, '2023-06-02');
+(2147483875, '2023-03-12');
 
 --
 -- Indexes for dumped tables
@@ -636,7 +607,7 @@ ALTER TABLE `website_visits`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `car_models`
@@ -702,7 +673,7 @@ ALTER TABLE `support_tab`
 -- AUTO_INCREMENT for table `website_visits`
 --
 ALTER TABLE `website_visits`
-  MODIFY `cookie_id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483904;
+  MODIFY `cookie_id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483876;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
